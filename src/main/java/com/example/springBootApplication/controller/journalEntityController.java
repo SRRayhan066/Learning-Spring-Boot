@@ -18,6 +18,16 @@ public class journalEntityController {
         return new ArrayList<>(journalEntries.values());
     }
 
+    @GetMapping("/id/{id}") //using path variable
+    public JournalEntity getAJournal(@PathVariable Integer id){
+        return journalEntries.get(id);
+    }
+
+    @GetMapping("/id") //using request param
+    public JournalEntity getSpecificJournal(@RequestParam("id") Integer id){
+        return journalEntries.get(id);
+    }
+
     @PostMapping
     public String addEntry(@RequestBody JournalEntity entry){
         journalEntries.put(entry.getId(),entry);
