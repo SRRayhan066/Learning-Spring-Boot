@@ -29,8 +29,20 @@ public class journalEntityController {
     }
 
     @PostMapping
-    public String addEntry(@RequestBody JournalEntity entry){
+    public String addJournal(@RequestBody JournalEntity entry){
         journalEntries.put(entry.getId(),entry);
         return "Successfull";
+    }
+
+    @PutMapping("/id")
+    public String updateJournal(@RequestParam("id") Integer id,@RequestBody JournalEntity entry){
+        journalEntries.put(id,entry);
+        return "Successfully Updated";
+    }
+
+    @DeleteMapping("/id")
+    public String deleteJournal(@RequestParam("id") Integer id){
+        journalEntries.remove(id);
+        return "Successfully deleted journal";
     }
 }
