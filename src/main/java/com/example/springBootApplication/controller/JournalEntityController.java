@@ -10,8 +10,8 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/journal")
-public class journalEntityController {
-    private Map<Integer, JournalEntity> journalEntries = new HashMap<>();
+public class JournalEntityController {
+    private Map<String, JournalEntity> journalEntries = new HashMap<>();
 
     @GetMapping
     public List<JournalEntity> getAllJournal(){
@@ -35,7 +35,7 @@ public class journalEntityController {
     }
 
     @PutMapping("/id")
-    public String updateJournal(@RequestParam("id") Integer id,@RequestBody JournalEntity entry){
+    public String updateJournal(@RequestParam("id") String id,@RequestBody JournalEntity entry){
         journalEntries.put(id,entry);
         return "Successfully Updated";
     }

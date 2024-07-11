@@ -1,15 +1,22 @@
 package com.example.springBootApplication.entity;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.Collection;
+
+@Document(collection = "journal_entries")
 public class JournalEntity {
-    int id;
+    @Id
+    String id;
     String title;
     String content;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
