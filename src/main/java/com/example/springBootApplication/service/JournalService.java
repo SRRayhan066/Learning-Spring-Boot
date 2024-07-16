@@ -35,9 +35,8 @@ public class JournalService {
         return oldJournal;
     }
 
-    public String deleteOne(String id){
+    public void deleteOne(String id){
         journalServiceRepository.deleteById(id);
-        return "Successful";
     }
 
 }
